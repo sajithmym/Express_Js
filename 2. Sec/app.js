@@ -16,7 +16,12 @@ app.get("/form",(req,res)=>{
     res.render("Form")
 })
 
-app.post()
+app.post("/form",(req,res)=>{
+    let user = req.body.user
+    let code = req.body.pass
+
+    res.send("Hellow! mr."+user+"  <br/> password is : "+code)
+})
 
 
 
