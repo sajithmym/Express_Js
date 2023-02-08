@@ -1,12 +1,24 @@
 let express = require("express")
 let ejs = require("ejs")
+let BodyParser = require("body-parser")
 let app = express()
 
 app.set("view engine","ejs")
+app.use(BodyParser.urlencoded({entended:true}))
 
 app.get("/",(req,res)=>{
     res.render("sajith")
 })
+
+
+
+app.get("/form",(req,res)=>{
+    res.render("Form")
+})
+
+app.post()
+
+
 
 let user_name = "SaJiTh"
 let names = ["sajith","pakistan","chicago","Balangoda","Srilanka"]
