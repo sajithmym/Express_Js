@@ -1,0 +1,23 @@
+create New Db - 
+		use newdbname
+
+show available dbs - 
+		show dbs
+
+show current db -
+		db
+
+create new collection -
+		db.createCollection("name of the collection")
+
+show available collections -
+		show collections
+
+Delete a Collection -
+		db.getCollection("name of the collection").drop()
+
+Delete DataBase - 
+		db.dropDatabase()
+
+Help -
+		db.help()
