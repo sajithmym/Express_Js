@@ -1,11 +1,3 @@
-let list = [
-    { First_Name: "Mohamed", Last_Name: "Sajith", Age: 22 },
-    { First_Name: "Mohamed", Last_Name: "Saj", Age: 23 },
-    { First_Name: "Mohamed", Last_Name: "Saji", Age: 22 },
-    { First_Name: "Mohamed", Last_Name: "Sajith_cool", Age: 25 },
-    { First_Name: "Mohamed", Last_Name: "Sajithmym", Age: 22 },
-]
-
 let express = require("express")
 let ejs = require("ejs")
 let mongoDB = require("mongoose")
@@ -21,21 +13,17 @@ let schema_for_DB_saj = new mongoDB.Schema({
 
 let The_Collection = mongoDB.model("new_collections", schema_for_DB_saj)
 
-list.forEach((icc) => {
-    The_Collection.create(icc, (err, rec) => {
-        if (err)
-            console.log("Error Found.. .");
-        else
-            console.log(rec);
-    })
-})
-
-
 app = express()
 app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
-    res.render("sajith")
+    The_Collection.find({}, (er, doc) => {
+        if (er)
+            console.log(er)
+        else {
+            res.render("For_app", { All: doc })
+        }
+    });
 })
 
 app.listen(8056, () => {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Open Image</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <style type="text/css">
+    body{
+      background-color: black;
+      color: chocolate;
+    }
+    p{
+        display: inline;
+    }
+  </style>
+<body>
+
+<form>
+  <center> 
+    <h1>Sajithmym Creation</h1>
+    <p>pleace select an image : </p><input type="file" id="image-input" style="margin-top: 25px;" onchange="displayImage()">
+</form>
+<br>
+<img class="img-fluid" style="width: 50%;height: 50%;margin-top: 50px;" id="image-display" style="display:none"></center>
+
+  <% All.forEach((single) => { %>
+    <h5> Full_Name <%= single.First_Name %> <%= single.Last_Name %>; Age : <%= single.Age %> </h5>
+  <% }) %>
+
+<script>
+  function displayImage() {
+    var input = document.getElementById('image-input');
+    var image = document.getElementById('image-display');
+    image.src = URL.createObjectURL(input.files[0]);
+    console.log(URL.createObjectURL(input.files[0]))
+    image.style.display = "block";
+  }
+</script>
+
+</body>
+</html>
