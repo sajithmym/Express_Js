@@ -10,7 +10,7 @@ let ejs = require("ejs")
 let mongoDB = require("mongoose")
 
 //Connect MongoDB   *mongoDB.set("useCreateIndex", "true")*
-mongoDB.connect("mongodb://localhost:27017/saj", { useNewUrlParser: true })
+mongoDB.connect("mongodb://localhost:27017/Try", { useNewUrlParser: true })
 
 let schema_for_DB_saj = new mongoDB.Schema({
     First_Name: String,

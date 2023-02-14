@@ -1,10 +1,3 @@
-let list = [
-    { First_Name: "Mohamed", Last_Name: "Sajith", Age: 22 },
-    { First_Name: "Mohamed", Last_Name: "Saj", Age: 22 },
-    { First_Name: "Mohamed", Last_Name: "Saji", Age: 22 },
-    { First_Name: "Mohamed", Last_Name: "Sajith_cool", Age: 22 },
-]
-
 let express = require("express")
 let ejs = require("ejs")
 let mongoDB = require("mongoose")
@@ -20,15 +13,24 @@ let schema_for_DB_saj = new mongoDB.Schema({
 
 let The_Collection = mongoDB.model("new_collections", schema_for_DB_saj)
 
-list.forEach((icc) => {
-    The_Collection.create(icc, (err, rec) => {
-        if (err)
-            console.log("Error Found.. .");
-        else
-            console.log(rec);
-    })
-})
-
+The_Collection.find({Age:22}, (er, doc) => {
+    if (er)
+        console.log(er)
+    else{
+        doc.forEach((element) => {
+            console.log(`Hellow mr.${element.First_Name} ${element.Last_Name}`);
+        });
+    }
+});
+The_Collection.find({}, (er, doc) => {
+    if (er)
+        console.log(er)
+    else{
+        doc.forEach((element) => {
+            console.log(` Show all  --> Hellow mr.${element.First_Name} ${element.Last_Name}`);
+        });
+    }
+});
 
 app = express()
 app.set("view engine", "ejs")
