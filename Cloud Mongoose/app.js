@@ -13,6 +13,8 @@ mongoDB.connect("mongodb+srv://sajith:asdQWE123@cluster0.exwgg9r.mongodb.net/sho
 })
 
 const app = Express()
+app.use(Express.json())
+
 app.use("/products",router)
 
 app.listen(8520,()=>{
